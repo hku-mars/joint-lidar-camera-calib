@@ -1,0 +1,9 @@
+<launch>
+  <param name="data_folder" value="/home/lli/data/data1" />
+  <node
+    pkg = "joint_lidar_camera_calib"
+    type = "calib"
+    name = "calib"
+    output = "screen"
+  />
+</launch>
