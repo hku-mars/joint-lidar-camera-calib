@@ -1443,7 +1443,7 @@ void Calib::joint_calib()
         frames[i].C_t[2] = poses[7 * i + 6];
     }
 
-    std::string msg = "Jointly calibrated intrinsic and extrinsic parameters";
+    std::string msg = "Jointly calibrated intrinsic and extrinsic parameters.";
     ROS_INFO_STREAM(msg.c_str());
 };
 
@@ -1585,7 +1585,7 @@ void Calib::colorize()
     std::string colorization_save_path = data_folder + "result/colorization.pcd";
     pcl::io::savePCDFileBinary(colorization_save_path, colorization);
 
-    std::string msg = "Colorized point cloud save as " + colorization_save_path;
+    std::string msg = "Colorized point cloud saved as " + colorization_save_path;
     ROS_INFO_STREAM(msg.c_str());
 }
 
