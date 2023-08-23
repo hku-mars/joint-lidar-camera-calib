@@ -947,7 +947,7 @@ void Calib::recover_visual_scale()
     std::string msg = "Initial visual scale recovered. Value: " + std::to_string(scale);
     ROS_INFO_STREAM(msg.c_str());
 
-    // Update visual points and camere tranlations
+    // Update visual points and camera translations
     for (size_t i = 0; i < vPoints.size(); ++i)
     {
         vPoints[i].p3d *= scale;
@@ -1108,7 +1108,7 @@ void Calib::refine_scale_ext()
         R_inv = q_inv.toRotationMatrix();
     }
 
-    // Update visual points and camere tranlations
+    // Update visual points and camera translations
     for (size_t i = 0; i < vPoints.size(); ++i)
     {
         vPoints[i].p3d *= scale[0];
