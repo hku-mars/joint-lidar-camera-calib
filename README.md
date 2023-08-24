@@ -4,12 +4,12 @@ Joint calibration of intrinsic and extrinsic parameters for LiDAR-camera systems
 
 ## Installation
 ### 1. Prerequisites
-Ubuntu
-ROS
-OpenCV
-PCL
-Eigen
-Ceres Solver
+Ubuntu  
+ROS  
+OpenCV  
+PCL  
+Eigen  
+Ceres Solver  
 
 ### 2. Build
 
