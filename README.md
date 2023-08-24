@@ -12,6 +12,15 @@ Eigen
 Ceres Solver  
 
 ### 2. Build
+Clone the repository and catkin_make:
+
+```
+    cd ~/$A_ROS_DIR$/src
+    git clone https://github.com/hku-mars/joint-lidar-camera-calib.git
+    cd ..
+    catkin_make
+    source devel/setup.bash
+```
 
 ## Usage
 
