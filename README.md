@@ -27,7 +27,7 @@ Clone the repository and catkin_make:
 
 ## 3 Usage
 ### 3.1 Adaptability
-This calibration method works for both solid-state and mechanically spinning LiDARs. In terms of cameras, current version supports the pinhole model with radial and tangential distortion.
+This calibration method works for both solid-state and mechanically spinning LiDARs. In terms of cameras, current version supports the pinhole model with radical and tangential distortion.
 ### 3.2 Data Collection
 ### 3.3 File Organization
 ### 3.4 Initialization
