@@ -1,6 +1,6 @@
 # joint-lidar-camera-calib
 ## Introduction
-Joint calibration of intrinsic and extrinsic parameters for LiDAR-camera systems in targetless environments. This work aims to calibrate camera intrinsic and LiDAR-camera extrinsic parameters even without a chessboard, while maintaining comparable accuracy with target-based methods. Our method merely requires several textured planes in the scene. As planes with abundant textures are ubiquitous in urban environments, this method enjoys broad usability across diverse calibration scenes.
+Joint calibration of intrinsic and extrinsic parameters for LiDAR-camera systems in targetless environments. This work aims to calibrate camera intrinsic and LiDAR-camera extrinsic parameters even without a chessboard, while maintaining comparable accuracy with target-based methods. Our method merely requires several textured planes in the scene. As planes with abundant textures are ubiquitous in urban environments, this method enjoys broad usability across diverse calibration scenes. A detailed description of the method can be found in our [paper](https://arxiv.org/abs/2308.12629).
 
 ## Installation
 ### 1. Prerequisites
