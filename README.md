@@ -25,13 +25,13 @@ Clone the repository and catkin_make:
     source devel/setup.bash
 ```
 
-## 3 Usage
-### 3.1 Adaptability
-This calibration method works for both solid-state and mechanically spinning LiDARs. In terms of cameras, current version supports the pinhole model with radical and tangential distortion.
-### 3.2 Data Collection
-### 3.3 File Organization
-### 3.4 Initialization
-### 3.5 Joint Calibration
-
-## 4 Sample data
+## 3 Sample data
 Data can be downloaded from this [link](https://connecthkuhk-my.sharepoint.com/:f:/g/personal/llihku_connect_hku_hk/EhBsk9-Nc-dHlssTHgi7L1sBg1fL8PUzG6gy0olccXYT4g?e=BQIBgF).
+
+## 4 Usage
+### 4.1 Adaptability
+This calibration method works for both solid-state and mechanically spinning LiDARs. In terms of cameras, current version supports the pinhole model with radical and tangential distortion.
+### 4.2 Data Collection
+### 4.3 File Organization
+### 4.4 Initialization
+### 4.5 Joint Calibration
