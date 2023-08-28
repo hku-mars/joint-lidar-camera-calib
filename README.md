@@ -31,7 +31,15 @@ Data can be downloaded from this [link](https://connecthkuhk-my.sharepoint.com/:
 ## 4 Usage
 ### 4.1 Adaptability
 This calibration method works for both solid-state and mechanically spinning LiDARs. In terms of cameras, current version supports the pinhole model with radical and tangential distortion.
+
 ### 4.2 Data Collection
+The ideal calibration scene usually consists of multiple textured planes, as shown in the following figure. In urban environments, such scenes are ubiquitous. However, please note that at least three planes with non-coplanar normal vectors are needed. Otherwise, the scene leads to degeneration of point-to-plane registration and thus compromises the extrinsic calibration accuracy.
+<div align="center">
+<img src="https://github.com/hku-mars/joint-lidar-camera-calib/blob/main/0.png" width="50%" />
+</div>
+In general, users roughly know the extrinsic parameters of the sensor suites. Given initial extrinsic parameters (initial rotation error < 5 degrees, initial tranlation error < 0.5 m), 6~8 frames of data are typically enough to calibrate the parameters. We suggest that, when recording each frame, the sensor suite is kept static to avoid point cloud distortion and sensor synchronization problems. The user changes the yaw angle (about 5 degrees) and x-y translation (about 10 cm) of the sensor suite a little bit when recording a new frame. Note that pure translation (no rotation) should be avoided because this leads to the degeneration of camera self-calibration. Continuous motion is also accepted if the above-mentioned problems can be tackled.  
+If even an initial guess of the extrinsic parameters is unavailable, users can recover them using hand-eye-calibration.
+    
 ### 4.3 File Organization
 ### 4.4 Initialization
 ### 4.5 Joint Calibration
