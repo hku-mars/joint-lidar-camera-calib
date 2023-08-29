@@ -44,3 +44,11 @@ If an initial guess of the extrinsic parameters is unavailable, users can recove
 ### 4.3 File Organization
 ### 4.4 Initialization
 ### 4.5 Joint Calibration
+
+## 5 Acknowledgements
+In development of this work, we stand on the state-of-the-art works: [COLMAP](https://github.com/colmap/colmap) and [BALM2](https://github.com/hku-mars/BALM).
+
+## 6 License
+The source code is released under GPLv2 license.
+
+For commercial use, please contact Dr. Fu Zhang fuzhang@hku.hk.
