@@ -39,7 +39,7 @@ The ideal calibration scene usually consists of multiple textured planes, as sho
 </div>
 In general, users roughly know the extrinsic parameters of the sensor suites. Given initial extrinsic parameters (initial rotation error < 5 degrees, initial tranlation error < 0.5 m), 6~8 frames of data are typically enough to calibrate the parameters. We suggest that, when recording each frame, the sensor suite is kept static to avoid point cloud distortion and sensor synchronization problems. The user changes the yaw angle (about 5 degrees) and x-y translation (about 10 cm) of the sensor suite a little bit when recording a new frame. Note that pure translation (no rotation) should be avoided because this leads to the degeneration of camera self-calibration. Continuous motion is also accepted if the above-mentioned problems can be tackled.  
 
-If an initial guess of the extrinsic parameters is unavailable, users can recover them using hand-eye-calibration. Sample code will be uploaded soon.
+If an initial guess of the extrinsic parameters is unavailable, users can recover them using hand-eye-calibration. Sample code (src/hand_eye_calib.cpp) and pose files (sample_data/hand_eye_calib) are provided.
 
 ### 4.3 Initialization
 As shown in the calibration pipeline, the initilization stage conducts camera self-calibration and LiDAR pose estimation. The codes for these parts are currently not included in the repo. For camera self-calibration, we use the open-source software [COLMAP](https://github.com/colmap/colmap), and we will provide a video detailing how to use it. For LiDAR pose estimation, we will upload the codes in the following weeks.
