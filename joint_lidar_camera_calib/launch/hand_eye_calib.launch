@@ -1,0 +1,10 @@
+<launch>
+  <param name="lidar_pose_path" value="/home/lli/calib_ws/src/joint_lidar_camera_calib/sample_data/hand_eye_calib/lidar_pose.txt" />
+  <param name="camera_pose_path" value="/home/lli/calib_ws/src/joint_lidar_camera_calib/sample_data/hand_eye_calib/camera_pose.txt" />
+  <node
+    pkg = "joint_lidar_camera_calib"
+    type = "hand_eye_calib"
+    name = "hand_eye_calib"
+    output = "screen"
+  />
+</launch>
