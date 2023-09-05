@@ -38,7 +38,11 @@ include_directories(
 )
 
 add_executable(calib src/calib.cpp include/calib.hpp)
+add_executable(hand_eye_calib src/hand_eye_calib.cpp include/calib.hpp)
 
 target_link_libraries(calib
+  ${catkin_LIBRARIES} ${OpenCV_LIBS} ${PCL_LIBRARIES} ${CERES_LIBRARIES}
+)
+target_link_libraries(hand_eye_calib
   ${catkin_LIBRARIES} ${OpenCV_LIBS} ${PCL_LIBRARIES} ${CERES_LIBRARIES}
 )
