@@ -55,7 +55,7 @@ Next, conduct LiDAR bundle adjustment (input your data path in config/conduct_BA
 ```
 
 ### 4.3 Joint Calibration
-### 4.4 Adaption to different camera models
+### 4.4 Adaptability
 
 ## 5 Acknowledgements
 In development of this work, we stand on the state-of-the-art works: [COLMAP](https://github.com/colmap/colmap) and [BALM2](https://github.com/hku-mars/BALM).
