@@ -42,7 +42,11 @@ In general, users roughly know the extrinsic parameters of the sensor suites. Gi
 If an initial guess of the extrinsic parameters is unavailable, users can recover them using hand-eye-calibration. Sample code (src/hand_eye_calib.cpp) and pose files (sample_data/hand_eye_calib) are provided.
 
 ### 4.3 Initialization
-As shown in the calibration pipeline, the initilization stage conducts camera self-calibration and LiDAR pose estimation. For camera self-calibration, we use the open-source software [COLMAP](https://github.com/colmap/colmap), and we will provide a video detailing how to use it. For LiDAR pose estimation, we will upload the codes in the following weeks.
+As shown in the calibration pipeline, the initilization stage conducts camera self-calibration and LiDAR pose estimation. 
+#### 4.3.1 Camera Self-Calibration
+We use the open-source software [COLMAP](https://github.com/colmap/colmap), and we will provide a video detailing how to use it. 
+#### 4.3.2 LiDAR Pose Estimation
+We will upload the codes soon.
 
 ### 4.4 Joint Calibration
 
