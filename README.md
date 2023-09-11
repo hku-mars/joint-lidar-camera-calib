@@ -29,10 +29,9 @@ Clone the repository and catkin_make:
 Data can be downloaded from this [link](https://connecthkuhk-my.sharepoint.com/:f:/g/personal/llihku_connect_hku_hk/EhBsk9-Nc-dHlssTHgi7L1sBg1fL8PUzG6gy0olccXYT4g?e=BQIBgF).
 
 ## 4 Usage
-### 4.1 Adaptability
 This calibration method works for both solid-state and mechanically spinning LiDARs. In terms of cameras, current version supports the pinhole model with radical and tangential distortion.
 
-### 4.2 Data Collection
+### 4.1 Data Collection
 The ideal calibration scene usually consists of multiple textured planes, as shown in the following figure. In urban environments, such scenes are ubiquitous. However, please note that at least three planes with non-coplanar normal vectors are needed. Otherwise, the scene leads to degeneration of point-to-plane registration and thus compromises the extrinsic calibration accuracy.
 <div align="center">
 <img src="https://github.com/hku-mars/joint-lidar-camera-calib/blob/main/0.png" width="50%" />
@@ -41,11 +40,11 @@ In general, users roughly know the extrinsic parameters of the sensor suites. Gi
 
 If an initial guess of the extrinsic parameters is unavailable, users can recover them using hand-eye-calibration. Sample code (src/hand_eye_calib.cpp) and pose files (sample_data/hand_eye_calib) are provided.
 
-### 4.3 Initialization
-As shown in the calibration pipeline, the initilization stage conducts camera self-calibration and LiDAR pose estimation. 
-#### 4.3.1 Camera Self-Calibration
+### 4.2 Initialization
+As shown in the calibration pipeline, the initilization stage first conducts camera self-calibration and LiDAR pose estimation. 
+#### 4.2.1 Camera Self-Calibration
 We use the open-source software [COLMAP](https://github.com/colmap/colmap), and we will provide a video detailing how to use it. 
-#### 4.3.2 LiDAR Pose Estimation
+#### 4.2.2 LiDAR Pose Estimation
 A slightly modified version of [BALM2](https://github.com/hku-mars/BALM) is provided here. First, estimate each LiDAR pose using incremental point-to-plane registration (input your data path in config/registration.yaml):
 ```
     roslaunch balm2 registration.launch
@@ -55,7 +54,8 @@ Next, conduct LiDAR bundle adjustment (input your data path in config/conduct_BA
     roslaunch balm2 conduct_BA.launch
 ```
 
-### 4.4 Joint Calibration
+### 4.3 Joint Calibration
+### 4.4 Adaption to different camera models
 
 ## 5 Acknowledgements
 In development of this work, we stand on the state-of-the-art works: [COLMAP](https://github.com/colmap/colmap) and [BALM2](https://github.com/hku-mars/BALM).
