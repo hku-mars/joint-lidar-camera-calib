@@ -38,18 +38,18 @@ The ideal calibration scene usually consists of multiple textured planes, as sho
 </div>
 In general, users roughly know the extrinsic parameters of the sensor suites. Given initial extrinsic parameters (initial rotation error < 5 degrees, initial tranlation error < 0.5 m), 6~8 frames of data are typically enough to calibrate the parameters. We suggest that, when recording each frame, the sensor suite is kept static to avoid point cloud distortion and sensor synchronization problems. The user changes the yaw angle (about 5 degrees) and x-y translation (about 10 cm) of the sensor suite a little bit when recording a new frame. Note that pure translation (no rotation) should be avoided because this leads to the degeneration of camera self-calibration. Continuous motion is also accepted if the above-mentioned problems can be tackled.  
 
-If an initial guess of the extrinsic parameters is unavailable, users can recover them using hand-eye-calibration. Sample code (src/hand_eye_calib.cpp) and pose files (sample_data/hand_eye_calib) are provided.
+If an initial guess of the extrinsic parameters is unavailable, users can recover them using hand-eye-calibration. Sample code (*src/hand_eye_calib.cpp*) and pose files (*sample_data/hand_eye_calib*) are provided.
 
 ### 4.2 Initialization
 As shown in the calibration pipeline, the Initilization stage first conducts **Camera Self-Calibration** and **LiDAR Pose Estimation**. 
 #### 4.2.1 Camera Self-Calibration
 We use the open-source software [COLMAP](https://github.com/colmap/colmap), and we will provide a video detailing how to use it. 
 #### 4.2.2 LiDAR Pose Estimation
-A slightly modified version of [BALM2](https://github.com/hku-mars/BALM) is provided here. First, estimate each LiDAR pose using incremental point-to-plane registration (input your data path in config/registration.yaml):
+A slightly modified version of [BALM2](https://github.com/hku-mars/BALM) is provided here. First, estimate each LiDAR pose using incremental point-to-plane registration (input your data path in *config/registration.yaml*):
 ```
 roslaunch balm2 registration.launch
 ```
-Next, conduct LiDAR bundle adjustment (input your data path in config/conduct_BA.yaml):
+Next, conduct LiDAR bundle adjustment (input your data path in *config/conduct_BA.yaml*):
 ```
 roslaunch balm2 conduct_BA.launch
 ```
@@ -76,14 +76,14 @@ Organize your data folder as follows:
     ├── images.txt
     └── points3D.txt
 ```
-Then conduct **Joint Optimization** (input your data path in launch/calib.launch):
+Then conduct **Joint Optimization** (input your data path in *launch/calib.launch*):
 ```
 roslaunch joint_lidar_camera_calib calib.launch
 ```
 Note that the step **Refinement of Visual Scale and Extrinsic Parameters** in the Initilization stage is also executed here.
 
 ### 4.4 Adaptability
-For the pinhole model with/without distortions, there are multiple combinations of camera intrinsic parameters. For instance, (f, cx, cy), (f, cx, cy, k1, k2), (fx, fy, cx, cy, k1, k2, p1, p2), and so on. Users should adapt the corresponding functions in include/calib.hpp to the specific parameters they use.
+For the pinhole model with/without distortions, there are multiple combinations of camera intrinsic parameters. For instance, (*fx = fy, cx, cy*), (*fx = fy, cx, cy, k1, k2*), (*fx, fy, cx, cy, k1, k2, p1, p2*), and so on. Users should adapt the corresponding functions in *include/calib.hpp* to the specific intrinsic parameters.
 
 ## 5 Acknowledgements
 In development of this work, we stand on the state-of-the-art works: [COLMAP](https://github.com/colmap/colmap) and [BALM2](https://github.com/hku-mars/BALM).
