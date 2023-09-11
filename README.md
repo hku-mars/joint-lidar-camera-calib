@@ -18,11 +18,11 @@ Ceres Solver
 Clone the repository and catkin_make:
 
 ```
-    cd ~/$A_ROS_DIR$/src
-    git clone https://github.com/hku-mars/joint-lidar-camera-calib.git
-    cd ..
-    catkin_make
-    source devel/setup.bash
+cd ~/$A_ROS_DIR$/src
+git clone https://github.com/hku-mars/joint-lidar-camera-calib.git
+cd ..
+catkin_make
+source devel/setup.bash
 ```
 
 ## 3 Sample data
@@ -41,20 +41,47 @@ In general, users roughly know the extrinsic parameters of the sensor suites. Gi
 If an initial guess of the extrinsic parameters is unavailable, users can recover them using hand-eye-calibration. Sample code (src/hand_eye_calib.cpp) and pose files (sample_data/hand_eye_calib) are provided.
 
 ### 4.2 Initialization
-As shown in the calibration pipeline, the initilization stage first conducts camera self-calibration and LiDAR pose estimation. 
+As shown in the calibration pipeline, the Initilization stage first conducts **Camera Self-Calibration** and **LiDAR Pose Estimation**. 
 #### 4.2.1 Camera Self-Calibration
 We use the open-source software [COLMAP](https://github.com/colmap/colmap), and we will provide a video detailing how to use it. 
 #### 4.2.2 LiDAR Pose Estimation
 A slightly modified version of [BALM2](https://github.com/hku-mars/BALM) is provided here. First, estimate each LiDAR pose using incremental point-to-plane registration (input your data path in config/registration.yaml):
 ```
-    roslaunch balm2 registration.launch
+roslaunch balm2 registration.launch
 ```
 Next, conduct LiDAR bundle adjustment (input your data path in config/conduct_BA.yaml):
 ```
-    roslaunch balm2 conduct_BA.launch
+roslaunch balm2 conduct_BA.launch
 ```
 
 ### 4.3 Joint Calibration
+Organize your data folder as follows:
+```
+.
+├── clouds
+│   ├── 0.pcd
+│   ├── ...
+│   └── x.pcd
+├── config
+│   └── config.yaml
+├── images
+│   ├── 0.png
+│   ├── ...
+│   └── x.png
+├── LiDAR_pose
+│   └── lidar_poses_BA.txt
+├── result
+└── SfM
+    ├── cameras.txt
+    ├── images.txt
+    └── points3D.txt
+```
+Then conduct **Joint Optimization** (input your data path in launch/calib.launch):
+```
+roslaunch joint_lidar_camera_calib calib.launch
+```
+Note that the step **Refinement of Visual Scale and Extrinsic Parameters** in the Initilization stage is also executed here.
+
 ### 4.4 Adaptability
 
 ## 5 Acknowledgements
