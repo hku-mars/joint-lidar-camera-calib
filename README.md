@@ -46,7 +46,14 @@ As shown in the calibration pipeline, the initilization stage conducts camera se
 #### 4.3.1 Camera Self-Calibration
 We use the open-source software [COLMAP](https://github.com/colmap/colmap), and we will provide a video detailing how to use it. 
 #### 4.3.2 LiDAR Pose Estimation
-We will upload the codes soon.
+A slightly modified version of [BALM2](https://github.com/hku-mars/BALM) is provided here. First, estimate each LiDAR pose using incremental point-to-plane registration (input your data path in config/registration.yaml):
+```
+    roslaunch balm2 registration.launch
+```
+Next, conduct LiDAR bundle adjustment (input your data path in config/conduct_BA.yaml):
+```
+    roslaunch balm2 conduct_BA.launch
+```
 
 ### 4.4 Joint Calibration
 
