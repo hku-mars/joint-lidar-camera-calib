@@ -83,6 +83,7 @@ roslaunch joint_lidar_camera_calib calib.launch
 Note that the step **Refinement of Visual Scale and Extrinsic Parameters** in the Initilization stage is also executed here.
 
 ### 4.4 Adaptability
+For the pinhole model with/without distortions, there are multiple combinations of camera intrinsic parameters. For instance, (f, cx, cy), (f, cx, cy, k1, k2), (fx, fy, cx, cy, k1, k2, p1, p2), and so on. Users should adapt the corresponding functions in include/calib.hpp to the specific parameters they use.
 
 ## 5 Acknowledgements
 In development of this work, we stand on the state-of-the-art works: [COLMAP](https://github.com/colmap/colmap) and [BALM2](https://github.com/hku-mars/BALM).
