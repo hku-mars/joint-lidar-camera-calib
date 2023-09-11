@@ -1,0 +1,9 @@
+<launch>
+  <rosparam command="load" file="$(find balm2)/config/registration.yaml" />
+  <node
+    pkg = "balm2"
+    type = "registration"
+    name = "registration"
+    output = "screen"
+  />
+</launch>

@@ -1,0 +1,6 @@
+file_path: "/home/lli/data/hku_campus/data4/"
+voxel_size: 0.5
+data_num: 8
+iterNum: 2
+save_final_cloud: 1
+noise_level: 0.00

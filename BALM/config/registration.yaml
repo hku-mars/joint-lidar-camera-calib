@@ -1,0 +1,7 @@
+file_folder: "/home/lli/data/hku_campus/data4/"
+data_num: 8
+dist_thre: 2.5
+leaf_size: 0.2
+nn_number: 20
+incre_number: 5
+squareDistThre: 16.0

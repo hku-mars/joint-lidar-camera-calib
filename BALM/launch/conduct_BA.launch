@@ -1,0 +1,9 @@
+<launch>
+  <rosparam command="load" file="$(find balm2)/config/conduct_BA.yaml" />
+  <node
+    pkg = "balm2"
+    type = "conduct_BA"
+    name = "conduct_BA"
+    output = "screen"
+  />
+</launch>
