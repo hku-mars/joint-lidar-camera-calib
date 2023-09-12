@@ -43,7 +43,7 @@ If an initial guess of the extrinsic parameters is unavailable, users can recove
 ### 4.2 Initialization
 As shown in the calibration pipeline, the Initilization stage first conducts **Camera Self-Calibration** and **LiDAR Pose Estimation**. 
 #### 4.2.1 Camera Self-Calibration
-We use the open-source software [COLMAP](https://github.com/colmap/colmap), and we have a video detailing how to use it. It can be accessed on [Youtube](https://youtu.be/JEqmdhYmR4A). In case you cannot access Youtube, use this [link](https://youtu.be/JEqmdhYmR4A) to download the video.
+We use the open-source software [COLMAP](https://github.com/colmap/colmap), and we have a video detailing how to use it. It can be accessed on [Youtube](https://youtu.be/JEqmdhYmR4A). In case you cannot access Youtube, use this [link]([https://youtu.be/JEqmdhYmR4A](https://connecthkuhk-my.sharepoint.com/:v:/g/personal/llihku_connect_hku_hk/EUoPgpWxtL1MucLGLMYu25sBvH8z35W7Fn4t9CqYcu9wdw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&e=YJLU14)) to download the video.
 #### 4.2.2 LiDAR Pose Estimation
 A slightly modified version of [BALM2](https://github.com/hku-mars/BALM) is provided here. First, estimate each LiDAR pose using incremental point-to-plane registration (input your data path in *config/registration.yaml*):
 ```
