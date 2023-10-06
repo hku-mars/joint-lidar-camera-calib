@@ -81,6 +81,7 @@ Then conduct **Joint Optimization** (input your data path in *launch/calib.launc
 roslaunch joint_lidar_camera_calib calib.launch
 ```
 Note that the step **Refinement of Visual Scale and Extrinsic Parameters** in the Initilization stage is also executed here.
+If you are pretty confident in your intrinsic parameters and only want to calibrate extrinsic parameters, set *keep_intrinsic_fixed* to *true* in *config/config.yaml*.
 
 ### 4.4 Adaptability
 For the pinhole model with/without distortions, there are multiple combinations of camera intrinsic parameters. For instance, (*fx = fy, cx, cy*), (*fx = fy, cx, cy, k1, k2*), (*fx, fy, cx, cy, k1, k2, p1, p2*), and so on. Users should adapt the corresponding functions in *include/calib.hpp* to the specific intrinsic parameters.
