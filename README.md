@@ -87,8 +87,9 @@ If you are pretty confident in your intrinsic parameters and only want to calibr
 For the pinhole model with/without distortions, there are multiple combinations of camera intrinsic parameters. For instance, (*fx = fy, cx, cy*), (*fx = fy, cx, cy, k1, k2*), (*fx, fy, cx, cy, k1, k2, p1, p2*), and so on. Users should adapt the corresponding functions in *include/calib.hpp* to the specific intrinsic parameters.
 
 ## 5 Debug
-If you get unexpected calibration result on your own dataset, here are some tips for locating the problem(s).
-(1) Visualize the accumulated point cloud after LiDAR BA. After conducting LiDAR BA (see Section 4.2.2), you might want to check the accuracy of LiDAR poses. While it is challenging to quantitatively evaluate  from the poses stored in *LiDAR_pose/lidar_poses_BA.txt*, 
+If you get unexpected calibration result on your own dataset, here are some tips for locating the problem(s).  
+(1) Visualize the accumulated point cloud after LiDAR BA. After conducting LiDAR BA (see Section 4.2.2), you might want to check the accuracy of LiDAR poses. While it is challenging to quantitatively evaluate the pose accuracy from poses stored in *LiDAR_pose/lidar_poses_BA.txt*, you may qualitatively evaluate it through the accumulated point cloud. The code transforms point cloud of every individual frame into the first LiDAR frame, which is saved as *clouds/cloud_all.pcd*. Visualize it in CloudCompare or PCL Viewer and check whethe the roads/walls are flat and thin enough.  
+(2) Make sure that the extrinsic parameters you provide in *config/config.yaml* are those which transform a point from LiDAR frame to camera frame. They should not be extrinsics which transform a point from camera frame to LiDAR frame or represent any other transformation. In addtion, although these are the initial extrinsic parameters that should, of course, be different from the ground-true values, they should not deviate too much from ground-truth. Rotation error of 5~10 degrees and translation error less than 0.5m are generally acceptable.
 
 ## 6 Acknowledgements
 In development of this work, we stand on the state-of-the-art works: [COLMAP](https://github.com/colmap/colmap) and [BALM2](https://github.com/hku-mars/BALM).
