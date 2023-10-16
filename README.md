@@ -81,15 +81,21 @@ Then conduct **Joint Optimization** (input your data path in *launch/calib.launc
 roslaunch joint_lidar_camera_calib calib.launch
 ```
 Note that the step **Refinement of Visual Scale and Extrinsic Parameters** in the Initilization stage is also executed here.
-If you are pretty confident in your intrinsic parameters and only want to calibrate extrinsic parameters, set *keep_intrinsic_fixed* to *true* in *config/config.yaml*.
 
 ### 4.4 Adaptability
-For the pinhole model with/without distortions, there are multiple combinations of camera intrinsic parameters. For instance, (*fx = fy, cx, cy*), (*fx = fy, cx, cy, k1, k2*), (*fx, fy, cx, cy, k1, k2, p1, p2*), and so on. Users should adapt the corresponding functions in *include/calib.hpp* to the specific intrinsic parameters.
+#### 4.4.1 Extrinsic Calibration Only
+If you are very confident in your intrinsic parameters (e.g. you calibrate them using standard target-based method) and only want to optimize extrinsic parameters, set *keep_intrinsic_fixed* to *true* in *config/config.yaml*.
+#### 4.4.2 Other Pinhole Models
+For the pinhole model with/without distortions, there are multiple combinations of camera intrinsic parameters. For instance, (*fx = fy, cx, cy*), (*fx = fy, cx, cy, k1, k2*), (*fx, fy, cx, cy, k1, k2, p1, p2*), and so on. Current version of this repository provides an implementation of (*fx = fy, cx, cy, k1, k2*), a commonly used group of parameters. However, when users want to use other combinations, they should adapt the corresponding functions (all the functions that work with camera projection) in *include/calib.hpp* to the specific intrinsic parameters.
+#### 4.4.3 Fisheye/Panoramic Camera
+We have not tested the performance on fisheye/panoramic cameras, so we are not sure about the calibration accuracy on them. Adaptation of code is also required. Users should adapt the corresponding functions (all the functions that work with camera projection) in *include/calib.hpp* to the specific intrinsic parameters.
 
 ## 5 Debug
 If you get unexpected calibration result on your own dataset, here are some tips for locating the problem(s).  
-(1) Visualize the accumulated point cloud after LiDAR BA. After conducting LiDAR BA (see Section 4.2.2), you might want to check the accuracy of LiDAR poses. While it is challenging to quantitatively evaluate the pose accuracy from poses stored in *LiDAR_pose/lidar_poses_BA.txt*, you may qualitatively evaluate it through the accumulated point cloud. The code transforms point cloud of every individual frame into the first LiDAR frame, which is saved as *clouds/cloud_all.pcd*. Visualize it in CloudCompare or PCL Viewer and check whethe the roads/walls are flat and thin enough.  
-(2) Make sure that the extrinsic parameters you provide in *config/config.yaml* are those which transform a point from LiDAR frame to camera frame. They should not be extrinsics which transform a point from camera frame to LiDAR frame or represent any other transformation. In addtion, although these are the initial extrinsic parameters that should, of course, be different from the ground-true values, they should not deviate too much from ground-truth. Rotation error of 5~10 degrees and translation error less than 0.5m are generally acceptable.
+(1) Visualize the accumulated point cloud after LiDAR BA. After conducting LiDAR BA (see Section 4.2.2), you might want to check the accuracy of LiDAR poses. While it is challenging to quantitatively evaluate the pose accuracy from poses stored in *LiDAR_pose/lidar_poses_BA.txt*, you may qualitatively evaluate it through the accumulated point cloud. The code transforms point cloud of every individual frame into the first LiDAR frame, which is saved as *clouds/cloud_all.pcd*. Visualize it in CloudCompare/PCL Viewer and check point cloud quality, e.g. whether the roads/walls are flat and thin enough.  
+(2) Make sure that the extrinsic parameters you provide in *config/config.yaml* are those which transform a point from LiDAR frame to camera frame. They should not be extrinsics which transform a point from camera frame to LiDAR frame or represent any other transformation.  
+(3) Make sure you have a good initial guess of extrinsic parameters. Although the intrinsic parameters should, of course, be different from the ground-true values, they should not deviate too much from ground-truth. Rotation error of 5~10 degrees and translation error less than 0.5m are generally acceptable. A good way to check the extrinsic parameters is to colorize point cloud using initial extrinsic and intrisic parameters and visualize it in CloudCompare/PCL Viewer. We provide an implementation of colorization, i.e. function *void Calib::colorize_point_cloud* in *calib.hpp*.  
+(4) 
 
 ## 6 Acknowledgements
 In development of this work, we stand on the state-of-the-art works: [COLMAP](https://github.com/colmap/colmap) and [BALM2](https://github.com/hku-mars/BALM).
