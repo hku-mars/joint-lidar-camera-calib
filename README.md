@@ -96,6 +96,9 @@ If you get unexpected calibration result on your own dataset, here are some tips
 (2) Make sure that the extrinsic parameters you provide in *config/config.yaml* are those which transform a point from LiDAR frame to camera frame. They should not be extrinsics which transform a point from camera frame to LiDAR frame or represent any other transformation.  
 (3) Make sure you have a good initial guess of extrinsic parameters. Although the intrinsic parameters should, of course, be different from the ground-true values, they should not deviate too much from ground-truth. Rotation error of 5~10 degrees and translation error less than 0.5m are generally acceptable. A good way to check the extrinsic parameters is to colorize point cloud using initial extrinsic and intrisic parameters and visualize it in CloudCompare/PCL Viewer. We provide an implementation of colorization, i.e. function *void Calib::colorize_point_cloud* in *calib.hpp*.  
 (4) Check if the refinement module (Section 4.3) works. Visualize LiDAR point cloud (*result/LiDAR_cloud.pcd*) and visual points (*result/SfM_cloud_before_opt.pcd*) in CloudCompare/PCL Viewer. They should align well, as shown in the following figure, where white points are LiDAR point cloud and colored points are visual points.
+<div align="center">
+<img src="https://github.com/hku-mars/joint-lidar-camera-calib/blob/main/align_refined.png" width="60%" />
+</div>
 
 ## 6 Acknowledgements
 In development of this work, we stand on the state-of-the-art works: [COLMAP](https://github.com/colmap/colmap) and [BALM2](https://github.com/hku-mars/BALM).
