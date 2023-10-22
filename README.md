@@ -1,6 +1,6 @@
 # joint-lidar-camera-calib
 ## 1 Introduction
-Joint calibration of intrinsic and extrinsic parameters for LiDAR-camera systems in targetless environments. This work aims to calibrate camera intrinsic and LiDAR-camera extrinsic parameters even without a chessboard, while maintaining comparable accuracy with target-based methods. Our method merely requires several textured planes in the scene. As textured planes are ubiquitous in urban environments, this method enjoys broad usability across diverse calibration scenes. A detailed description of the method can be found in our [paper](https://arxiv.org/abs/2308.12629). The calibration pipeline is summarized in the following figure.
+Joint intrinsic and extrinsic LiDAR-camera calibration in targetless environments. This work aims to calibrate camera intrinsic and LiDAR-camera extrinsic parameters even without a chessboard, while maintaining comparable accuracy with target-based methods. Our method merely requires several textured planes in the scene. As textured planes are ubiquitous in urban environments, this method enjoys broad usability across diverse calibration scenes. A detailed description of the method can be found in our [paper](https://arxiv.org/abs/2308.12629). The calibration pipeline is summarized in the following figure.
 <div align="center">
 <img src="https://github.com/hku-mars/joint-lidar-camera-calib/blob/main/pipeline.png" width="70%" />
 </div>
