@@ -391,7 +391,7 @@ bool Calib::load_configuration()
     config_file["eigen_ratio_thre"] >> eigen_ratio_thre;
     config_file["point_to_plane_dist_thre"] >> point_to_plane_dist_thre;
     config_file["alpha_sqrt"] >> alpha_sqrt;
-    config_file["keep_intrinsic_fixed: false"] >> keep_intrinsic_fixed;
+    config_file["keep_intrinsic_fixed"] >> keep_intrinsic_fixed;
     config_file["save_point_cloud_result"] >> save_point_cloud_result;
     config_file["save_calib_result"] >> save_calib_result;
     config_file["colorization"] >> colorization;
