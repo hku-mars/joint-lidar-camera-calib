@@ -993,6 +993,8 @@ bool Calib::calc_plane(pcl::PointCloud<pcl::PointXYZ> & cloud,
     evalsReal.rowwise().sum().minCoeff(&evalsMin);
     evalsReal.rowwise().sum().maxCoeff(&evalsMax);
     int evalsMid = 3 - evalsMin - evalsMax;
+    if (evalsMid > 2 || evalsMid < 0)
+    { return false;}    
 
     eigen_ratio = evalsReal(evalsMid) / evalsReal(evalsMin);
     if (eigen_ratio > eigen_ratio_thre)
