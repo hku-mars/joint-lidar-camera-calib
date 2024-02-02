@@ -18,6 +18,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   pcl_conversions
   pcl_ros
+  tf
 )
 
 find_package(Eigen3 REQUIRED)
